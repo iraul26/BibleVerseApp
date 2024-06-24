@@ -1,0 +1,33 @@
+﻿@model List<BibleVerseApp.Models.BibleVerseModel>
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h2>Search Results for  "@ViewData["SearchResult"]"</h2>
+
+@if (Model.Any()) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Chapter</th>
+                <th>Verse</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var verse in Model) {
+                <tr>
+                    <td>@verse.Book</td>
+                    <td>@verse.Chapter</td>
+                    <td>@verse.Verse</td>
+                    <td>@verse.Text</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else {
+    <p>No verses found matching your search criteria.</p>
+}

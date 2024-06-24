@@ -1,0 +1,31 @@
+﻿@model BibleVerseApp.Models.BibleVerseSearchModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Bible.io</h1>
+    <p>Use the dropdown to search for verses in the new or old testament and use this search bar to search for any verse in the Bible</p>
+
+    <form  asp-controller="Home" asp-action="SearchVerse" method="post">
+        <div class="mb-3">
+            <label for="testament" class="form-label">Select Testament</label>
+            <select asp-for="Testament" class="form-select" id="testament">
+                <option value="1">Old Testament</option>
+                <option value="2">New Testament</option>
+                <option value="3">Both Testaments</option>
+                <span asp-validation-for="Testament" class="text-danger"></span>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="SearchVerse" class="form-label">Search For A Verse</label>
+            <input asp-for="SearchVerse" class="form-control" id="searchVerse">
+            <span asp-validation-for="SearchVerse" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

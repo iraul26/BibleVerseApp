@@ -1,0 +1,18 @@
+﻿@model List<BibleVerseApp.Models.BibleVerseModel>
+
+@{
+    ViewData["Title"] = "Testament Verses";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bible.io - @ViewData["TestamentTitle"]</h1>
+    <p>List of all verses in @ViewData["TestamentTitle"]</p>
+
+    <div class="row">
+        @foreach (var verse in Model) {
+            <div class="col-md-6">
+                <p><strong>@verse.Book @verse.Chapter:@verse.Verse</strong> - @verse.Text</p>
+            </div>
+        }
+    </div>
+</div>
